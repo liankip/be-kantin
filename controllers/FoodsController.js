@@ -67,5 +67,36 @@ module.exports = {
         } catch (e) {
             res.send(e.message)
         }
+    },
+
+    EditFood: async (req, res, next) => {
+        try {
+            let {
+                foto,
+                nama,
+                harga,
+                promo,
+                deskripsi
+            } = req.body
+
+            Foods.update({
+                foto: foto,
+                nama: nama,
+                harga: harga,
+                promo: promo,
+                deskripsi: deskripsi,
+                updatedAt: new Date()
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            }).then(Res => {
+                res.status(200).send({data: Res})
+            }).catch(error => {
+                res.status(400).send(error.message)
+            })
+        } catch (e) {
+            res.send(e.message)
+        }
     }
 }
