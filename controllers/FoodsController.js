@@ -37,5 +37,35 @@ module.exports = {
         } catch (e) {
             res.send(e.message)
         }
+    },
+
+    AddFood: async (req, res, next) => {
+        try {
+            let {
+                userid,
+                foto,
+                nama,
+                harga,
+                promo,
+                deskripsi
+            } = req.body
+
+            Foods.create({
+                userId: userid,
+                foto: foto,
+                nama: nama,
+                harga: harga,
+                promo: promo,
+                deskripsi: deskripsi,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }).then(Res => {
+                res.status(200).send({data: Res})
+            }).catch(error => {
+                res.status(400).send(error.message)
+            })
+        } catch (e) {
+            res.send(e.message)
+        }
     }
 }
