@@ -98,5 +98,21 @@ module.exports = {
         } catch (e) {
             res.send(e.message)
         }
+    },
+
+    DeleteFood: async (req, res, next) => {
+        try {
+            Foods.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then(Res => {
+                res.status(200).send({data: Res})
+            }).catch(error => {
+                res.status(400).send(error.message)
+            })
+        } catch (e) {
+            res.send(e.message)
+        }
     }
 }
