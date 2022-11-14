@@ -27,6 +27,62 @@ module.exports = {
             roles: 2,
             createdAt: new Date(),
             updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        }, {
+            username: '191110112',
+            password: '123456',
+            email: '191110112@example.com',
+            nomor_telephone: '8126758292',
+            roles: 2,
+            createdAt: new Date(),
+            updatedAt: new Date()
         }]);
     },
 
