@@ -1,18 +1,22 @@
 const db = require('../models/index');
+const {QueryTypes} = require("sequelize");
 const Foods = db['foods'];
 
 module.exports = {
     GetFoods: async (req, res, next) => {
         try {
-            var params;
+            var params = '';
             if (req.query.roles <= 1) {
-                params = {
-                    userId: req.query.userid
-                }
+                params = 'WHERE f.userId = ' + req.query.userid + '\n'
             }
 
-            Foods.findAll({
-                where: params
+            db.sequelize.query('SELECT f.id, f.foto, f.nama, f.harga, f.promo, f.deskripsi, SUM(r.rating) as rating\n' +
+                'FROM reviews r\n' +
+                'INNER JOIN foods f ON r.foodId = f.id\n' +
+                params +
+                'GROUP BY r.foodId\n' +
+                'ORDER BY rating DESC', {
+                type: QueryTypes.SELECT
             }).then(Res => {
                 res.status(200).send({data: Res})
             }).catch(error => {
@@ -25,10 +29,11 @@ module.exports = {
 
     GetFood: async (req, res, next) => {
         try {
-            Foods.findOne({
-                where: {
-                    id: req.params.id
-                }
+            db.sequelize.query('SELECT f.id, f.foto, f.nama, f.harga, f.promo, f.deskripsi, SUM(r.rating) as rating\n' +
+                'FROM reviews r\n' +
+                'INNER JOIN foods f ON r.foodId = f.id\n' +
+                'WHERE r.foodId = ' + req.params.id, {
+                type: QueryTypes.SELECT
             }).then(Res => {
                 res.status(200).send({data: Res})
             }).catch(error => {
